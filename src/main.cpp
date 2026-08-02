@@ -29,9 +29,10 @@ int main () {
         lineCounter ++;
     }
     pokefile.close();
-    Pokemon pokes[lineCounter];
-    
-    int loadedNum =  createPokemonList(filename,pokes,);
+    Pokemon pokes[lineCounter]; // now automatically create the list
+    int loaded = createPokemonList(filename, pokes, lineCounter);
+    cout << loaded << " Pokemon successfully found!";
+
     do {
         cout << "1. Print List";
         cout << "2. Sort/Filter";
@@ -43,7 +44,8 @@ int main () {
 
         }
         if (choice == 2) {
-
+            cout << "Enter Generation Number: ";
+            cin >> genNo;
         }
         if (choice == 3) {
 

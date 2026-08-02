@@ -19,7 +19,7 @@ using namespace std;
 
 //returns number loaded and stores
 bool isValidChoice (int choice) {
-    if ((choice >= 0) && (choice <= 5)) {
+    if ((choice >= FIRST_CHOICE) && (choice <= LAST_CHOICE)) {
         return true;
     }
     return false;
@@ -27,7 +27,7 @@ bool isValidChoice (int choice) {
 int findName (Pokemon pokes[], string name, int pokeNo) { //return index of pokemon
     int count = 0;
     while (count < pokeNo) {
-        
+
     }
 }
 int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
@@ -56,33 +56,105 @@ int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     return count;
 }
 
-Pokemon sortByGeneration(Pokemon pokes[]) {
+void sortByGeneration(Pokemon pokes[], int pokeNo, int genNo) {
+    int index = 0;
+    int count = 0;
+    while (index <= pokeNo) { //first, order by generation number
+        for (int i = 0; i < pokeNo; i ++) { // look through everything
+            if (pokes[i].gen == genNo) { // if it matches numbers
+                count ++;
+                Pokemon temp = pokes[index];
+                pokes[index] = pokes[i];
+                pokes[i] = temp;
+            }
+        }
+        
+    }
+    cout << "Generation Sort Complete! Sorting by Dex Number...";
+    for (int i = 0; i < count; i ++) {
+        for (int j = 0; j < count; j ++) {
+            if (pokes[j].dexNum < pokes[i].dexNum) {
+                Pokemon temp = pokes[j];
+                pokes[j] = pokes[i];
+                pokes[i] = temp;
+            }
+        }
+    }
+    cout << "Sort Complete!";
 
 }
 
-Pokemon sortByType(Pokemon pokes[], string type1, string type2) {
-
+void sortByType(Pokemon pokes[], string type1, string type2, int pokeNo) {
+    string type1;
+    string type2;
+    cout << "Enter Type 1";
+    cin >> type1;
+    cout << "Enter Type 2";
+    cin >> type2;
 }
 
-Pokemon sortByCaught (Pokemon pokes[]) {
+void sortByCaught (Pokemon pokes[], int pokeNo) {
+    int index = 0;
+    while () {
 
+    }
 }
-Pokemon changeCaught(Pokemon pokes[], string name) {
-
+void changeCaught(Pokemon pokes[], string name, int pokeNo) {
+    for (int i = 0; i < pokeNo; i ++) {
+        if (pokes[i].name == name) {
+            pokes[i].caught == true;
+        }
+    }
 }
 
-double percentCaught (Pokemon pokes[]) {
-
+double percentCaught (Pokemon pokes[], int pokeNo) {
+    double caughtCount = 0;
+    for (int i = 0; i < pokeNo; i ++) {
+        if (pokes[i].caught) {
+            caughtCount ++;
+        }
+    }
+    return (pokeNo/caughtCount) * 100;
 }
 
-teamMember createTeamMember() {
-
+void createTeamMember(string name, teamMember*& head) {
+    teamMember* team = new teamMember;
+    team->name = name;
+    team->next = head;
+    head = team;
 }
-int deleteMember() {
-
+int deleteMember(teamMember*& head, string name) {
+     teamMember* previous = nullptr;
+    teamMember* current = head;
+        int count = 0;
+        while (current != nullptr) {
+            if (current->name = name) {
+                teamMember* temp = current;
+                if (previous == nullptr) {
+                    head = current->next;
+                    current = head;
+                }
+                else {
+                    previous->next = current-> next;
+                    current = current->next;
+                }
+                delete temp;
+                count ++;
+            }
+            else {
+                previous = current;
+                current = current->next;
+            }
+        }
+    return count;
 }
-int deleteAllMembers() {
-
+int deleteAllMembers(teamMember*& head) {
+    while (head != nullptr) {
+        teamMember* node = new teamMember;
+        node = head->next;
+        delete head;
+        head = node;
+    }
 }
 
 //Unit 1

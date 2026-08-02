@@ -8,6 +8,9 @@ const double C_MINIMUM = 70.0;
 const double D_MINIMUM = 60.0;
 const int GEN_1_NUMBER = 151;
 
+const int FIRST_CHOICE = 0;
+const int LAST_CHOICE = 5;
+
 struct Pokemon {
     string name;
     string type1;
@@ -19,7 +22,7 @@ struct Pokemon {
 
 
 struct teamMember {
-    Pokemon poke;
+    string name;
     teamMember* next;
 };
 
