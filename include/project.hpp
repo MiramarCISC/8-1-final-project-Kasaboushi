@@ -9,6 +9,7 @@ const double D_MINIMUM = 60.0;
 const int GEN_1_NUMBER = 151;
 
 struct Pokemon {
+    string name;
     string type1;
     string type2;
     int dexNum;

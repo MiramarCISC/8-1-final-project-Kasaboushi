@@ -12,4 +12,5 @@ int main () {
         // output requested info: cout all pokemon in the array
         // two arrays; one with sorted, one with original values
     // 
+    Pokemon pokes = createPokemonList()
 }

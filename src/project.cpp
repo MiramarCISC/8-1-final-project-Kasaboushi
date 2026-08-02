@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <ostream>
+#include "project.hpp"
 
 using namespace std;
 
@@ -15,7 +16,34 @@ using namespace std;
 
 // choice validator
 // input validator
+//returns number loaded and stores
+int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
+    if (pokes == nullptr) {
+        cout << "File Not Found: nullptr in input";
+        return 0;
+    }
 
+    ifstream in(filename);
+
+    if (!in.is_open()) {
+        return 0;
+    }
+
+    int count = 0;
+    Pokemon poke;
+
+    while (count < pokeNo)
+           in >> poke.name >> poke.type1 >> poke.type2 >> poke.dexNum >> poke.gen >> poke.caught) {
+        if (isValidQuantity(item.quantity) && isValidPrice(item.price)) {
+            items[count] = item;
+            count++;
+        }
+    }
+
+    in.close();
+
+    return count;
+}
 
 
 //Unit 1
