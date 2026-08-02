@@ -4,8 +4,7 @@
 
 using namespace std;
 
-// function to open file
-// function to check if open or closed
+
 // function to put everything in the file in an array
 
 // function to sort pokemon by name
