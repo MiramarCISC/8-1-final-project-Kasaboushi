@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <ostream>
+#include "project.hpp"
+#include "project.cpp"
 
 using namespace std;
 
@@ -12,5 +14,32 @@ int main () {
         // output requested info: cout all pokemon in the array
         // two arrays; one with sorted, one with original values
     // 
-    Pokemon pokes = createPokemonList()
+    cout << "Pokedex Tracker";
+    Pokemon pokes[151];
+    int loadedNum =  createPokemonList("gen1.txt",pokes,151);
+    do {
+        cout << "1. Print List";
+        cout << "2. Sort/Filter";
+        cout << "3. Mark as Caught";
+        cout << "4. Open Teambuilder";
+        cout << "5. Write to file";
+        cout << "0. Quit";
+        if (choice == 1) {
+
+        }
+        if (choice == 2) {
+
+        }
+        if (choice == 3) {
+
+        }
+        if (choice == 4) {
+
+        }
+        if (choice == 5) {
+
+        }
+
+    } while (choice != 0);
+    return 0;
 }

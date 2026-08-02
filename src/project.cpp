@@ -13,9 +13,11 @@ using namespace std;
 // filter by type
 // boolean to alter caught/not
 // percentage completion
-
+//filter by caught/uncaught
+// implement basic paging
 // choice validator
 // input validator
+
 //returns number loaded and stores
 int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     if (pokes == nullptr) {
@@ -32,12 +34,9 @@ int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     int count = 0;
     Pokemon poke;
 
-    while (count < pokeNo)
-           in >> poke.name >> poke.type1 >> poke.type2 >> poke.dexNum >> poke.gen >> poke.caught) {
-        if (isValidQuantity(item.quantity) && isValidPrice(item.price)) {
-            items[count] = item;
+    while (count < pokeNo && in >> poke.name >> poke.type1 >> poke.type2 >> poke.dexNum >> poke.gen >> poke.caught) {
+            pokes[count] = poke;
             count++;
-        }
     }
 
     in.close();
