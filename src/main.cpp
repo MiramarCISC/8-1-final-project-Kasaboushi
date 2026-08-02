@@ -15,8 +15,23 @@ int main () {
         // two arrays; one with sorted, one with original values
     // 
     cout << "Pokedex Tracker";
-    Pokemon pokes[151];
-    int loadedNum =  createPokemonList("gen1.txt",pokes,151);
+    cout << "Enter file name: ";
+    string filename;
+    cin >> filename;
+    int lineCounter = 0;
+    string line;
+    ifstream pokefile(filename);
+
+    if (!pokefile.is_open()) {
+        return 0;
+    }
+    while (getline(pokefile, line)) {
+        lineCounter ++;
+    }
+    pokefile.close();
+    Pokemon pokes[lineCounter];
+    
+    int loadedNum =  createPokemonList(filename,pokes,);
     do {
         cout << "1. Print List";
         cout << "2. Sort/Filter";

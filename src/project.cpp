@@ -13,12 +13,23 @@ using namespace std;
 // filter by type
 // boolean to alter caught/not
 // percentage completion
-//filter by caught/uncaught
-// implement basic paging
+// filter by caught/uncaught 
 // choice validator
 // input validator
 
 //returns number loaded and stores
+bool isValidChoice (int choice) {
+    if ((choice >= 0) && (choice <= 5)) {
+        return true;
+    }
+    return false;
+}
+int findName (Pokemon pokes[], string name, int pokeNo) { //return index of pokemon
+    int count = 0;
+    while (count < pokeNo) {
+        
+    }
+}
 int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     if (pokes == nullptr) {
         cout << "File Not Found: nullptr in input";
@@ -34,7 +45,8 @@ int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     int count = 0;
     Pokemon poke;
 
-    while (count < pokeNo && in >> poke.name >> poke.type1 >> poke.type2 >> poke.dexNum >> poke.gen >> poke.caught) {
+    while (count < pokeNo && in >> poke.name >> poke.type1 >> poke.type2 >> poke.dexNum >> poke.gen) {
+            poke.caught = false;
             pokes[count] = poke;
             count++;
     }
@@ -44,6 +56,34 @@ int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     return count;
 }
 
+Pokemon sortByGeneration(Pokemon pokes[]) {
+
+}
+
+Pokemon sortByType(Pokemon pokes[], string type1, string type2) {
+
+}
+
+Pokemon sortByCaught (Pokemon pokes[]) {
+
+}
+Pokemon changeCaught(Pokemon pokes[], string name) {
+
+}
+
+double percentCaught (Pokemon pokes[]) {
+
+}
+
+teamMember createTeamMember() {
+
+}
+int deleteMember() {
+
+}
+int deleteAllMembers() {
+
+}
 
 //Unit 1
     // assigns grade/ output based on percent completed

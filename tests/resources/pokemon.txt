@@ -1,0 +1,3 @@
+Charmander Fire none 4 1
+Squirtle Water none 7 1
+Bulbasaur Grass none 1 1
