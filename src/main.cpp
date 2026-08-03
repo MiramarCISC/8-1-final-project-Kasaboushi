@@ -39,23 +39,56 @@ int main () {
         cout << "3. Mark as Caught";
         cout << "4. Open Teambuilder";
         cout << "5. Write to file";
+        cout << "6. Show Completion";
         cout << "0. Quit";
-        if (choice == 1) {
+        cout << "Input Choice: ";
+        cin >> choice;
+        if (isValidChoice(choice))
+            if (choice == 1) {
+                for (int i = 0; i < lineCounter; i ++) 
+            }
+            if (choice == 2) {
+                cout << "Pick Parameter";
+                cout << "1. Caught";
+                cout << "2. Generation";
+                cout << "3. Type";
+                int sortChoice = 0;
+                if (choice == 1) {
 
-        }
-        if (choice == 2) {
-            cout << "Enter Generation Number: ";
-            cin >> genNo;
-        }
-        if (choice == 3) {
+                }
+                else if (sortChoice == 2) {
+                    cout << "Enter Generation Number: ";
+                    int genNo;
+                    cin >> genNo;
+                    if ((choice >= 1) && (choice <= 9)) {
+                        sortByGeneration(pokes,lineCounter,genNo);
+                    }
+                    else{
+                        cout << "Invalid Number";
+                    }
+                }
+                else if (sortChoice == 3) {
+                    cout << "Enter Type 1 (First Letter Capitalized)";
+                    string type1;
+                    cin >> type1;
+                    cout << "Enter Type 2 (First Letter Capitalized)";
+                    string type2;
+                    cin >> type2;
+                    sortByType(pokes, type1, type2, lineCounter);
+                }
+                else {
+                    cout << "Invalid Choice";
+                }
+            }
+            if (choice == 3) {
 
-        }
-        if (choice == 4) {
+            }
+            if (choice == 4) {
 
-        }
-        if (choice == 5) {
+            }
+            if (choice == 5) {
 
-        }
+            }
 
     } while (choice != 0);
     return 0;

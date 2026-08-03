@@ -184,6 +184,18 @@ int deleteAllMembers(teamMember*& head) {
         head = node;
     }
 }
+void printPokemon(Pokemon pokes[], int pokeNo) {
+    for (int i = 0; i < pokeNo; i ++) {
+        Pokemon poke = pokes[i];
+        if (poke.type2 == "none") {
+            cout << poke.name << poke.type1 << poke.dexNum << poke.gen;
+        }
+        else {
+            cout << poke.name << poke.type1 << poke.type2 << poke.dexNum << poke.gen;
+        }
+        
+    }
+}
 
 //Unit 1
     // assigns grade/ output based on percent completed

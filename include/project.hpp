@@ -9,7 +9,7 @@ const double D_MINIMUM = 60.0;
 const int GEN_1_NUMBER = 151;
 
 const int FIRST_CHOICE = 0;
-const int LAST_CHOICE = 5;
+const int LAST_CHOICE = 6;
 
 struct Pokemon {
     string name;
