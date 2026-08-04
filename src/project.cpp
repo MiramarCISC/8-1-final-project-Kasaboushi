@@ -194,14 +194,25 @@ int deleteAllMembers(teamMember*& head) {
 void printPokemon(Pokemon pokes[], int pokeNo) {
     for (int i = 0; i < pokeNo; i ++) {
         Pokemon poke = pokes[i];
-        // if (poke.type2 == "none") {
-        //     cout << poke.name << poke.type1 << poke.dexNum << poke.gen;
-        // }
-        // else {
-            cout << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
-        // }
-        
+        cout << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
     }
+}
+void writeReport(Pokemon pokes[], int pokeNo, string filename) {
+    double percent = percentCaught(pokes, pokeNo);
+    ofstream outFile(filename);
+    if (!outFile.is_open()) {
+        cout << "Report Write Failed\n";
+    }
+    outFile << percent << " percent caught.";
+    outFile << "Name Type1 Type2 DexNumber Generation\n";
+    for (int i = 0; i < pokeNo; i ++) {
+        Pokemon poke = pokes[i];
+        outFile << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
+    }
+    outFile.close();
+    cout << "Write Complete";
+
+    
 }
 int gradeMessage(double percent) {
     if (percent == 100) {
@@ -231,6 +242,9 @@ int gradeMessage(double percent) {
 }
 bool writeTeamOut(string filename, teamMember* head) {
     ofstream out(filename);
+    if (!out.is_open()) {
+        return false;
+    }
     if (head == nullptr) {
         cout << "No teams built\n";
         return false;
@@ -261,7 +275,7 @@ void savePokemonToFile(Pokemon pokes[], int pokeNo) {
         pokeFile << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
     }
     cout << "Write Complete\n";
-    ofstream pokeFile.close();
+    pokeFile.close();
 
 
 }

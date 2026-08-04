@@ -31,6 +31,7 @@ int main () {
     }
     pokefile.close();
     Pokemon* pokes = new Pokemon[lineCounter]; // now automatically create the list
+    teamMember* head = nullptr;
     int loaded = createPokemonList(filename, pokes, lineCounter);
     cout << loaded << " Pokemon successfully found!\n";
 
@@ -95,19 +96,22 @@ int main () {
                 cout << "1. Add Pokemon\n";
                 cout << "2. Clear Team\n";
                 cout << "3. Save Team\n";
-                cout << "4. Print Team\n"
+                cout << "4. Print Team\n";
                 cout << "0. Exit\n";
                 int teamChoice = -1;
                 do {
                     if ((teamChoice <= 0)||(teamChoice <= 4)) {
                         if (teamChoice == 1) {
-                            //make two functions to handle if no nodes vs some nodes
+                            cout << "Enter Name\n";
+                            string pokeName;
+                            cin >> pokeName;
+                            createTeamMember(pokeName,head);
                         }
                         if (teamChoice == 2) {
-                            //deleteAllMembers();
+                            deleteAllMembers(head);
                         }
                         if (teamChoice == 3) {
-                            bool success = true;//writeTeamOut("team.txt", );
+                            bool success = writeTeamOut("team.txt", head);
                             if (success){
                                 cout << "Write Complete under team.txt\n";
                             }
@@ -122,7 +126,7 @@ int main () {
                 } while (choice != 0);
             }
             if (choice == 5) {
-                
+                writeReport(pokes, lineCounter, "pokemonReport.txt");
             }
             if (choice == 6) {
                 cout << percentCaught(pokes, lineCounter) << " Percent Caught!\n";
