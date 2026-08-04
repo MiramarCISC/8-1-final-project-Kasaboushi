@@ -34,7 +34,7 @@ int findPokemon (Pokemon pokes[], string name, int pokeNo) { //return index of p
 }
 int createPokemonList(string filename, Pokemon pokes[], int pokeNo) {
     if (pokes == nullptr) {
-        cout << "File Not Found: nullptr in input";
+        cout << "File Not Found: nullptr in input\n";
         return 0;
     }
 
@@ -73,7 +73,7 @@ void sortByGeneration(Pokemon pokes[], int pokeNo, int genNo) {
         }
         index ++;
     }
-    cout << "Generation Sort Complete! Sorting by Dex Number...";
+    cout << "Generation Sort Complete! Sorting by Dex Number...\n";
     for (int i = 0; i < count; i ++) {
         for (int j = 0; j < count; j ++) {
             if (pokes[j].dexNum < pokes[i].dexNum) {
@@ -83,7 +83,7 @@ void sortByGeneration(Pokemon pokes[], int pokeNo, int genNo) {
             }
         }
     }
-    cout << "Sort Complete!";
+    cout << "Sort Complete!\n";
 
 }
 
@@ -102,7 +102,7 @@ void sortByType(Pokemon pokes[], string type1, string type2, int pokeNo) {
         }
         index ++;   
     }
-    cout << "Matches Sorted to Front!";
+    cout << "Matches Sorted to Front!\n";
 }
 
 void sortByCaught (Pokemon pokes[], int pokeNo) {
@@ -125,14 +125,18 @@ void changeCaught(Pokemon pokes[], string name, int pokeNo) {
         if (pokes[i].name == name) {
             if (pokes[i].caught == true) {
                 pokes[i].caught = false;   
+                cout << name << " marked uncaught\n";
+                break;
             }
             else
             {
-                pokes[i].caught == true;
+                pokes[i].caught = true;
+                cout << name << " marked caught\n";
+                break;
             }
         }
-        
     }
+    cout << name << " not found\n";
 }
 
 double percentCaught (Pokemon pokes[], int pokeNo) {
@@ -142,7 +146,7 @@ double percentCaught (Pokemon pokes[], int pokeNo) {
             caughtCount ++;
         }
     }
-    return (pokeNo/caughtCount) * 100;
+    return (pokeNo/caughtCount) * 100.0;
 }
 
 void createTeamMember(string name, teamMember*& head) {
@@ -194,41 +198,41 @@ void printPokemon(Pokemon pokes[], int pokeNo) {
         //     cout << poke.name << poke.type1 << poke.dexNum << poke.gen;
         // }
         // else {
-            cout << poke.name << poke.type1 << poke.type2 << poke.dexNum << poke.gen;
+            cout << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
         // }
         
     }
 }
 int gradeMessage(double percent) {
     if (percent == 100) {
-        cout << "You are a true Pokemon Master!";
+        cout << "You are a true Pokemon Master!\n";
         return 0;
     }
     else if (percent >= A_MINIMUM) {
-        cout << "Grade A: So close!";
+        cout << "Grade A: So close!\n";
         return 1;
     }
     else if (percent >= B_MINIMUM) {
-        cout << "Grade B: Great job so far!";
+        cout << "Grade B: Great job so far!\n";
         return 2;
     }
     else if (percent >= C_MINIMUM) {
-        cout << "Grade C: Getting close to all of em!";
+        cout << "Grade C: Getting close to all of em!\n";
         return 3;
     }
     else if (percent >= D_MINIMUM) {
-        cout << "Grade D: Doing better!";
+        cout << "Grade D: Doing better!\n";
         return 4;
     }
     else {
-        cout << "Grade F: Try Harder";
+        cout << "Grade F: Try Harder\n";
         return 5;
     }
 }
 bool writeTeamOut(string filename, teamMember* head) {
     ofstream out(filename);
     if (head == nullptr) {
-        cout << "No teams built";
+        cout << "No teams built\n";
         return false;
     }
     if (!out.is_open()) {
@@ -240,6 +244,26 @@ bool writeTeamOut(string filename, teamMember* head) {
     }
     out.close();
     return true;
+}
+
+void savePokemonToFile(Pokemon pokes[], int pokeNo) {
+    string filename;
+    cout << "Enter filename to save to: \n";
+    cin >> filename;
+    ofstream pokeFile(filename);
+    if (!pokeFile.is_open()) {
+        cout << "Failed to save\n";
+        return;
+    }
+    pokeFile << "Name Type1 Type2 DexNumber Generation\n";
+    for (int i = 0; i < pokeNo; i ++) {
+        Pokemon poke = pokes[i];
+        pokeFile << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
+    }
+    cout << "Write Complete\n";
+    ofstream pokeFile.close();
+
+
 }
 
 //Unit 1

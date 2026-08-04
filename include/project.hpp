@@ -28,4 +28,21 @@ struct teamMember {
     teamMember* next;
 };
 
+int createPokemonList(string filename, Pokemon pokes[], int pokeNo);
+bool isValidChoice(int choice);
+int findPokemon (Pokemon pokes[], string name, int pokeNo);
+void sortByGeneration(Pokemon pokes[], int pokeNo, int genNo);
+void sortByType(Pokemon pokes[], string type1, string type2, int pokeNo);
+void sortByCaught (Pokemon pokes[], int pokeNo);
+void changeCaught(Pokemon pokes[], string name, int pokeNo);
+double percentCaught (Pokemon pokes[], int pokeNo);
+void createTeamMember(string name, teamMember*& head);
+int deleteMember(teamMember*& head, string name);
+int deleteAllMembers(teamMember*& head);
+void printPokemon(Pokemon pokes[], int pokeNo);
+int gradeMessage(double percent);
+bool writeTeamOut(string filename, teamMember* head);
+
+
+
 #endif
