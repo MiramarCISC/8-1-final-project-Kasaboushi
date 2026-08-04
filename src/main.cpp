@@ -36,7 +36,7 @@ int main () {
     do {
         cout << "1. Print List";
         cout << "2. Sort/Filter";
-        cout << "3. Mark as Caught";
+        cout << "3. Toggle Caught";
         cout << "4. Open Teambuilder";
         cout << "5. Write to file";
         cout << "6. Show Completion";
@@ -45,7 +45,8 @@ int main () {
         cin >> choice;
         if (isValidChoice(choice))
             if (choice == 1) {
-                for (int i = 0; i < lineCounter; i ++) 
+                cout << "Name Type1 Type2 DexNumber Generation";
+                printPokemon(pokes, lineCounter);
             }
             if (choice == 2) {
                 cout << "Pick Parameter";
@@ -54,7 +55,8 @@ int main () {
                 cout << "3. Type";
                 int sortChoice = 0;
                 if (choice == 1) {
-
+                    sortByCaught(pokes,lineCounter);
+                    cout << "Sort Complete!";
                 }
                 else if (sortChoice == 2) {
                     cout << "Enter Generation Number: ";
@@ -62,17 +64,18 @@ int main () {
                     cin >> genNo;
                     if ((choice >= 1) && (choice <= 9)) {
                         sortByGeneration(pokes,lineCounter,genNo);
+                        cout << "Sorting for Generation " << genNo << " Pokemon...";
                     }
-                    else{
+                    else {
                         cout << "Invalid Number";
                     }
                 }
                 else if (sortChoice == 3) {
-                    cout << "Enter Type 1 (First Letter Capitalized)";
                     string type1;
-                    cin >> type1;
-                    cout << "Enter Type 2 (First Letter Capitalized)";
                     string type2;
+                    cout << "Enter Type 1";
+                    cin >> type1;
+                    cout << "Enter Type 2";
                     cin >> type2;
                     sortByType(pokes, type1, type2, lineCounter);
                 }
@@ -81,14 +84,54 @@ int main () {
                 }
             }
             if (choice == 3) {
-
+                cout << "Enter Name:";
+                string name;
+                cin >> name;
+                changeCaught(pokes, name, lineCounter);
             }
             if (choice == 4) {
-
+                cout << "Welcome to the Teambuilder!";
+                cout << "1. Add Pokemon";
+                cout << "2. Clear Team";
+                cout << "3. Save Team";
+                cout << "0. Exit";
+                int teamChoice = -1;
+                do {
+                    if ((teamChoice <= 0)||(teamChoice <= 3)) {
+                        if (teamChoice == 1) {
+                            
+                        }
+                        if (teamChoice == 2) {
+                            //deleteAllMembers();
+                        }
+                        if (teamChoice == 3) {
+                            bool success = true;//writeTeamOut("team.txt", );
+                            if (success){
+                                cout << "Write Complete under team.txt";
+                            }
+                            else {
+                                cout << "Error";
+                            }
+                        }
+                        if (teamChoice == 0) {
+                            cout << "Exiting...";
+                        }
+                    }
+                } while (choice != 0);
             }
             if (choice == 5) {
-
+                
             }
+            if (choice == 6) {
+                cout << percentCaught(pokes, lineCounter) << " Percent Caught!";
+                gradeMessage(percentCaught(pokes, lineCounter));
+            }
+            if (choice == 0) {
+                cout << "Exiting...";
+            }
+        else {
+            cout << "Invalid Choice";
+        }
 
     } while (choice != 0);
     return 0;

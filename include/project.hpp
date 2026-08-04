@@ -1,6 +1,8 @@
 #ifndef PROJECT_HPP
 #define PROJECT_HPP
-#include <string>;
+#include <string>
+
+using namespace std;
 
 const double A_MINIMUM = 90.0;
 const double B_MINIMUM = 80.0;

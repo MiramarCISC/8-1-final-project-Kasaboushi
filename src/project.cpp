@@ -88,12 +88,6 @@ void sortByGeneration(Pokemon pokes[], int pokeNo, int genNo) {
 }
 
 void sortByType(Pokemon pokes[], string type1, string type2, int pokeNo) {
-    string type1;
-    string type2;
-    cout << "Enter Type 1";
-    cin >> type1;
-    cout << "Enter Type 2";
-    cin >> type2;
     int index = 0;
     int count = 0;
     while (index <= pokeNo) { //first, order by generation number
@@ -113,7 +107,6 @@ void sortByType(Pokemon pokes[], string type1, string type2, int pokeNo) {
 
 void sortByCaught (Pokemon pokes[], int pokeNo) {
     int index = 0;
-    int index = 0;
     int count = 0;
     while (index <= pokeNo) { 
         for (int i = 0; i < pokeNo; i ++) { 
@@ -130,8 +123,15 @@ void sortByCaught (Pokemon pokes[], int pokeNo) {
 void changeCaught(Pokemon pokes[], string name, int pokeNo) {
     for (int i = 0; i < pokeNo; i ++) {
         if (pokes[i].name == name) {
-            pokes[i].caught == true;
+            if (pokes[i].caught == true) {
+                pokes[i].caught = false;   
+            }
+            else
+            {
+                pokes[i].caught == true;
+            }
         }
+        
     }
 }
 
@@ -156,7 +156,7 @@ int deleteMember(teamMember*& head, string name) {
      teamMember* current = head;
         int count = 0;
         while (current != nullptr) {
-            if (current->name = name) {
+            if (current->name == name) {
                 teamMember* temp = current;
                 if (previous == nullptr) {
                     head = current->next;
@@ -177,24 +177,69 @@ int deleteMember(teamMember*& head, string name) {
     return count;
 }
 int deleteAllMembers(teamMember*& head) {
+    int count = 0;
     while (head != nullptr) {
         teamMember* node = new teamMember;
         node = head->next;
         delete head;
         head = node;
+        count ++;
     }
+    return count;
 }
 void printPokemon(Pokemon pokes[], int pokeNo) {
     for (int i = 0; i < pokeNo; i ++) {
         Pokemon poke = pokes[i];
-        if (poke.type2 == "none") {
-            cout << poke.name << poke.type1 << poke.dexNum << poke.gen;
-        }
-        else {
+        // if (poke.type2 == "none") {
+        //     cout << poke.name << poke.type1 << poke.dexNum << poke.gen;
+        // }
+        // else {
             cout << poke.name << poke.type1 << poke.type2 << poke.dexNum << poke.gen;
-        }
+        // }
         
     }
+}
+int gradeMessage(double percent) {
+    if (percent == 100) {
+        cout << "You are a true Pokemon Master!";
+        return 0;
+    }
+    else if (percent >= A_MINIMUM) {
+        cout << "Grade A: So close!";
+        return 1;
+    }
+    else if (percent >= B_MINIMUM) {
+        cout << "Grade B: Great job so far!";
+        return 2;
+    }
+    else if (percent >= C_MINIMUM) {
+        cout << "Grade C: Getting close to all of em!";
+        return 3;
+    }
+    else if (percent >= D_MINIMUM) {
+        cout << "Grade D: Doing better!";
+        return 4;
+    }
+    else {
+        cout << "Grade F: Try Harder";
+        return 5;
+    }
+}
+bool writeTeamOut(string filename, teamMember* head) {
+    ofstream out(filename);
+    if (head == nullptr) {
+        cout << "No teams built";
+        return false;
+    }
+    if (!out.is_open()) {
+        return false;
+    }
+    while (head != nullptr) {
+        out << head->name;
+        head = head->next;
+    }
+    out.close();
+    return true;
 }
 
 //Unit 1
