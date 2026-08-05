@@ -183,7 +183,9 @@ void testWeek6SimpleLinkedTaskList() {
 
     teamMember* start = nullptr;
     createTeamMember("Excadrill",start);
-    assert()
+    createTeamMember("Chandelure",start);
+    createTeamMember("Beartic",start);
+    assert(deleteAllMembers(start) == 3);
 }
 
 // Week 7: File-Based Inventory Report
