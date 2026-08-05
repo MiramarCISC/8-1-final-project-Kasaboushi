@@ -96,11 +96,10 @@ int main () {
                 cout << "1. Add Pokemon\n";
                 cout << "2. Clear Team\n";
                 cout << "3. Save Team\n";
-                cout << "4. Print Team\n";
                 cout << "0. Exit\n";
                 int teamChoice = -1;
                 do {
-                    if ((teamChoice <= 0)||(teamChoice <= 4)) {
+                    if ((teamChoice <= 0)||(teamChoice <= 3)) {
                         if (teamChoice == 1) {
                             cout << "Enter Name\n";
                             string pokeName;

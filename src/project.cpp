@@ -146,7 +146,7 @@ double percentCaught (Pokemon pokes[], int pokeNo) {
             caughtCount ++;
         }
     }
-    return (pokeNo/caughtCount) * 100.0;
+    return (caughtCount/pokeNo) * 100.0;
 }
 
 void createTeamMember(string name, teamMember*& head) {
