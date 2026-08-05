@@ -42,7 +42,7 @@ int deleteAllMembers(teamMember*& head);
 void printPokemon(Pokemon pokes[], int pokeNo);
 int gradeMessage(double percent);
 bool writeTeamOut(string filename, teamMember* head);
-void writeReport(Pokemon pokes[], int pokeNo, string filename)
+void writeReport(Pokemon pokes[], int pokeNo, string filename);
 
 
 

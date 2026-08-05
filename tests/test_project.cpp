@@ -23,47 +23,58 @@ void createTestInventoryFile(string filename) {
 
 // Week 1: Program Basics
 void testWeek1ProgramBasics() {
-    ScoreList scores;
-    scores.addScore(80.0);
-    scores.addScore(90.0);
+    // ScoreList scores;
+    // scores.addScore(80.0);
+    // scores.addScore(90.0);
 
-    double average = scores.getAverage();
+    // double average = scores.getAverage();
 
-    assert(nearlyEqual(average, 85.0));
-    assert(Student::determineLetterGrade(95.0) == 'A');
-    assert(Student::determineLetterGrade(65.0) == 'D');
+    // assert(nearlyEqual(average, 85.0));
+    // assert(Student::determineLetterGrade(95.0) == 'A');
+    // assert(Student::determineLetterGrade(65.0) == 'D');
+    assert(gradeMessage(100) == 0);
+    assert(gradeMessage(90) == 1);
+    assert(gradeMessage(80) == 2);
+    assert(gradeMessage(70) == 3);
+    assert(gradeMessage(60) == 4);
+    assert(gradeMessage(20) == 5);
 }
 
 // Week 2: Decisions and Loops
 void testWeek2DecisionsAndLoops() {
-    assert(ScoreList::isValidScore(0.0));
-    assert(ScoreList::isValidScore(100.0));
-    assert(!ScoreList::isValidScore(-1.0));
-    assert(!ScoreList::isValidScore(101.0));
+    // assert(ScoreList::isValidScore(0.0));
+    // assert(ScoreList::isValidScore(100.0));
+    // assert(!ScoreList::isValidScore(-1.0));
+    // assert(!ScoreList::isValidScore(101.0));
 
-    assert(Task::isValidPriority(1));
-    assert(Task::isValidPriority(5));
-    assert(!Task::isValidPriority(0));
-    assert(!Task::isValidPriority(6));
+    // assert(Task::isValidPriority(1));
+    // assert(Task::isValidPriority(5));
+    // assert(!Task::isValidPriority(0));
+    // assert(!Task::isValidPriority(6));
 
-    assert(isValidMenuChoice(0));
-    assert(isValidMenuChoice(4));
-    assert(!isValidMenuChoice(5));
+    // assert(isValidMenuChoice(0));
+    // assert(isValidMenuChoice(4));
+    // assert(!isValidMenuChoice(5));
+    assert(isValidChoice(0) == true);
+    assert(isValidChoice(-1) == false);
+    assert(isValidChoice(15) == false);
+    assert(isValidChoice(5) == true);
+    assert(isValidChoice(2) == true);
 }
 
 // Week 3: Functions and Program Design
 void testWeek3FunctionsAndProgramDesign() {
-    ScoreList scores;
-    scores.addScore(70.0);
-    scores.addScore(80.0);
-    scores.addScore(90.0);
+    // ScoreList scores;
+    // scores.addScore(70.0);
+    // scores.addScore(80.0);
+    // scores.addScore(90.0);
 
-    assert(nearlyEqual(scores.getTotal(), 240.0));
-    assert(nearlyEqual(scores.getAverage(), 80.0));
+    // assert(nearlyEqual(scores.getTotal(), 240.0));
+    // assert(nearlyEqual(scores.getAverage(), 80.0));
 
-    Student student("A123", "Alex");
-    assert(student.getId() == "A123");
-    assert(student.getName() == "Alex");
+    // Student student("A123", "Alex");
+    // assert(student.getId() == "A123");
+    // assert(student.getName() == "Alex");
 }
 
 // Week 4: Arrays, Searching, and Sorting
