@@ -8,6 +8,8 @@ The makefile is included with everything necessary for compilation. As long as y
 ```./main``` will work, and so will ```make run```. Type into the terminal to execute.
 ## Test Instructions
 Type ```make test``` to automatically run the tests.
+
+Each test is labeled by unit and verifies the unit it is named after.
 ## Course Topics Integrated and Tested
 
 1. Week 1 Program Basics
@@ -44,3 +46,8 @@ Type ```make test``` to automatically run the tests.
    - Code location: project.cpp, savePokemonToFile(), writeTeamOut(), writeReport()
    - Test location: test_project.cpp
    - Can be accessed through "Write to File" from the menu or under Open Teambuilder, Save Team.
+## Known Limitations
+- Clearing individual team members is implemented but not available for simplicity's sake.
+- Cannot handle duplicate pokemon very well as it only finds the first of each name.
+- In bigger files, does not have paging and will output entire file.
+- Sort does not filter, so nonrelevant pokemon will be after the relevant ones.
