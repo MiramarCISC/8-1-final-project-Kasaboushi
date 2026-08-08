@@ -260,25 +260,6 @@ bool writeTeamOut(string filename, teamMember* head) {
     return true;
 }
 
-void savePokemonToFile(Pokemon pokes[], int pokeNo) {
-    string filename;
-    cout << "Enter filename to save to: \n";
-    cin >> filename;
-    ofstream pokeFile(filename);
-    if (!pokeFile.is_open()) {
-        cout << "Failed to save\n";
-        return;
-    }
-    pokeFile << "Name Type1 Type2 DexNumber Generation\n";
-    for (int i = 0; i < pokeNo; i ++) {
-        Pokemon poke = pokes[i];
-        pokeFile << poke.name << " " << poke.type1 << " " << poke.type2 << " " << poke.dexNum << " " << poke.gen << "\n";
-    }
-    cout << "Write Complete\n";
-    pokeFile.close();
-
-
-}
 
 //Unit 1
     // assigns grade/ output based on percent completed
